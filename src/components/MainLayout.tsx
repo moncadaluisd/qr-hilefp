@@ -28,16 +28,22 @@ import {
 } from "@heroicons/react/20/solid";
 
 const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Team", href: "#", icon: UsersIcon, current: false },
-  { name: "Projects", href: "#", icon: FolderIcon, current: false },
+  { name: "Dashboard", href: "/dashboard", icon: HomeIcon, current: true },
+  {
+    name: "Orders",
+    href: "/orders",
+    icon: DocumentDuplicateIcon,
+    current: false,
+  },
+  { name: "Menu", href: "/menu", icon: FolderIcon, current: false },
+  { name: "Users", href: "/users", icon: UsersIcon, current: false },
   { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
-  { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
+
   { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
 ];
 
 const userNavigation = [
-  { name: "Your profile", href: "#" },
+  { name: "Your profile", href: "/profile-user" },
   { name: "Sign out", href: "#" },
 ];
 
@@ -220,7 +226,7 @@ export default function MainLayout({
                         className="ml-4 text-sm font-semibold leading-6 text-gray-900"
                         aria-hidden="true"
                       >
-                        Tom Cook
+                        Luis Moncada
                       </span>
                       <ChevronDownIcon
                         className="ml-2 h-5 w-5 text-gray-400"
