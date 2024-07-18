@@ -6,6 +6,7 @@ interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   classDiv?: string;
   classInput?: string;
   error?: string;
+  classDivInput?: string;
 }
 
 const TextInput: React.FC<TextInputProps> = forwardRef(
@@ -21,6 +22,7 @@ const TextInput: React.FC<TextInputProps> = forwardRef(
       classInput = "",
       itemRef,
       error,
+      classDivInput="mt-2"
     },
     ref: any
   ) => {
@@ -32,7 +34,7 @@ const TextInput: React.FC<TextInputProps> = forwardRef(
         >
           {label}
         </label>
-        <div className="mt-2">
+        <div className={classDivInput}>
           <input
             {...{ name, placeholder, value, onChange, type }}
             ref={ref}
