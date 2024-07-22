@@ -2,10 +2,9 @@ import MainLayout from "@/components/MainLayout";
 import "../globals.css";
 import type { Metadata } from "next";
 
-
 export const metadata: Metadata = {
-  title: "Orders Section",
-  description: "User Profile",
+  title: "POS system",
+  description: "POS system",
 };
 
 export default function RootLayout({
@@ -15,4 +14,3 @@ export default function RootLayout({
 }) {
   return <MainLayout thirdColumn={true}>{children}</MainLayout>;
 }
-

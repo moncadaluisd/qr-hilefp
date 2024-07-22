@@ -5,7 +5,7 @@ import BoardColumn from "@/components/BoardColumn";
 import HeaderOrders from "@/components/HeaderOrders";
 import { mockOrder } from "@/mocks/mockOrder";
 import React, { useState } from "react";
-import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
 
 const Page = () => {
   const [orders, setOrders] = useState<any>(mockOrder);

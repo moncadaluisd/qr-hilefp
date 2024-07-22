@@ -65,21 +65,21 @@ export default function FormMenuProduct({
             <TextInput
               {...register("name")}
               label="Name"
-              value={product?.name || ""}
               classDiv="col-span-full"
+              error={errors.name?.message}
             />
 
             <TextInput
               {...register("price")}
               label="Price"
-              value={product?.price || ""}
               classDiv="col-span-full"
+              error={errors.price?.message}
             />
             <TextAreaDescription
               {...register("description")}
               label="Description"
-              value={product?.description || ""}
               classDiv="col-span-full"
+              error={errors.description?.message}
             />
 
             <div className="relative flex gap-x-3 col-span-full">

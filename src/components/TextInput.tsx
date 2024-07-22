@@ -50,5 +50,5 @@ const TextInput: React.FC<TextInputProps> = forwardRef(
 
 TextInput.displayName = "TextInput";
 
-export default TextInput;
+export default React.memo(TextInput);
 

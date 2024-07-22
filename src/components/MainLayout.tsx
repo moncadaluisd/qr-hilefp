@@ -16,9 +16,12 @@ import {
   BellIcon,
   CalendarIcon,
   ChartPieIcon,
+  CircleStackIcon,
+  Cog6ToothIcon,
   DocumentDuplicateIcon,
   FolderIcon,
   HomeIcon,
+  RectangleStackIcon,
   UsersIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
@@ -26,6 +29,12 @@ import {
   ChevronDownIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/20/solid";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "./ui/tooltip";
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: HomeIcon, current: true },
@@ -37,7 +46,14 @@ const navigation = [
   },
   { name: "Menu", href: "/menu", icon: FolderIcon, current: false },
   { name: "Users", href: "/users", icon: UsersIcon, current: false },
-  { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
+  { name: "Clients", href: "/clients", icon: CircleStackIcon, current: false },
+  {
+    name: "POS system",
+    href: "/pos-systme",
+    icon: RectangleStackIcon,
+    current: false,
+  },
+  { name: "Settings", href: "/settings", icon: Cog6ToothIcon, current: false },
 
   { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
 ];
@@ -141,23 +157,32 @@ export default function MainLayout({
           <nav className="mt-8">
             <ul role="list" className="flex flex-col items-center space-y-1">
               {navigation.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={item.href}
-                    className={classNames(
-                      item.current
-                        ? "bg-gray-800 text-white"
-                        : "text-gray-400 hover:bg-gray-800 hover:text-white",
-                      "group flex gap-x-3 rounded-md p-3 text-sm font-semibold leading-6"
-                    )}
-                  >
-                    <item.icon
-                      className="h-6 w-6 shrink-0"
-                      aria-hidden="true"
-                    />
-                    <span className="sr-only">{item.name}</span>
-                  </a>
-                </li>
+                <TooltipProvider key={item.name}>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <li>
+                        <a
+                          href={item.href}
+                          className={classNames(
+                            item.current
+                              ? "bg-gray-800 text-white"
+                              : "text-gray-400 hover:bg-gray-800 hover:text-white",
+                            "group flex gap-x-3 rounded-md p-3 text-sm font-semibold leading-6"
+                          )}
+                        >
+                          <item.icon
+                            className="h-6 w-6 shrink-0"
+                            aria-hidden="true"
+                          />
+                          <span className="sr-only">{item.name}</span>
+                        </a>
+                      </li>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{item.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               ))}
             </ul>
           </nav>

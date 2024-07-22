@@ -2,7 +2,6 @@ import MainLayout from "@/components/MainLayout";
 import "../globals.css";
 import type { Metadata } from "next";
 
-
 export const metadata: Metadata = {
   title: "Orders Section",
   description: "User Profile",

@@ -17,11 +17,10 @@ import { Textarea } from "@headlessui/react";
 import TextAreaDescription from "./TextAreaDescription";
 
 const ModalCategory = () => {
-  
   return (
     <AlertDialog>
-      <AlertDialogTrigger>
-        <ButtonGeneral variant="general" name="Add Category" />
+      <AlertDialogTrigger className="bg-primary hover:bg-primary/90 text-white   rounded-md px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
+        Add Category
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>

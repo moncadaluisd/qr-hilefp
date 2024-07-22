@@ -4,7 +4,7 @@ import {
   Draggable,
   Droppable,
   DropResult,
-} from "react-beautiful-dnd";
+} from "@hello-pangea/dnd";
 
 interface DragDropMenuProps {
   menu: any[];
