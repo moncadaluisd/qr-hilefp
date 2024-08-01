@@ -45,14 +45,14 @@ const navigation = [
     current: false,
   },
   { name: "Menu", href: "/menu", icon: FolderIcon, current: false },
-  { name: "Users", href: "/users", icon: UsersIcon, current: false },
-  { name: "Clients", href: "/clients", icon: CircleStackIcon, current: false },
-  {
-    name: "POS system",
-    href: "/pos-systme",
-    icon: RectangleStackIcon,
-    current: false,
-  },
+
+  // { name: "Clients", href: "/clients", icon: CircleStackIcon, current: false },
+  // {
+  //   name: "POS system",
+  //   href: "/pos-systme",
+  //   icon: RectangleStackIcon,
+  //   current: false,
+  // },
   { name: "Settings", href: "/settings", icon: Cog6ToothIcon, current: false },
 
   { name: "Reports", href: "#", icon: ChartPieIcon, current: false },

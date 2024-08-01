@@ -1,11 +1,4 @@
-import {
-  CalendarIcon,
-  ChartPieIcon,
-  DocumentDuplicateIcon,
-  FolderIcon,
-  HomeIcon,
-  UsersIcon,
-} from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
@@ -21,7 +14,7 @@ export default function MenuVertical({ menu }: MenuVerticalProps) {
       <ul role="list" className="-mx-2 space-y-1">
         {menu.map((item) => (
           <li key={item.name}>
-            <a
+            <Link
               href={item.href}
               className={classNames(
                 item.current
@@ -40,7 +33,7 @@ export default function MenuVertical({ menu }: MenuVerticalProps) {
                 )}
               />
               {item.name}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
