@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
 import { useState } from "react";
@@ -35,6 +36,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "./ui/tooltip";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: HomeIcon, current: true },
@@ -49,7 +53,7 @@ const navigation = [
   // { name: "Clients", href: "/clients", icon: CircleStackIcon, current: false },
   // {
   //   name: "POS system",
-  //   href: "/pos-systme",
+  //   href: "/pos-system",
   //   icon: RectangleStackIcon,
   //   current: false,
   // },
@@ -74,6 +78,15 @@ export default function MainLayout({
   thirdColumn?: boolean;
 }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const router = usePathname();
+
+  const handleCurrent = (name: string) => {
+    if (router.includes(name)) {
+      return true;
+    }
+
+    return false;
+  };
 
   return (
     <>
@@ -121,10 +134,10 @@ export default function MainLayout({
                   <ul role="list" className="-mx-2 flex-1 space-y-1">
                     {navigation.map((item) => (
                       <li key={item.name}>
-                        <a
+                        <Link
                           href={item.href}
                           className={classNames(
-                            item.current
+                            handleCurrent(item.href)
                               ? "bg-gray-800 text-white"
                               : "text-gray-400 hover:bg-gray-800 hover:text-white",
                             "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6"
@@ -135,7 +148,7 @@ export default function MainLayout({
                             aria-hidden="true"
                           />
                           {item.name}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -161,10 +174,10 @@ export default function MainLayout({
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <li>
-                        <a
+                        <Link
                           href={item.href}
                           className={classNames(
-                            item.current
+                            handleCurrent(item.href)
                               ? "bg-gray-800 text-white"
                               : "text-gray-400 hover:bg-gray-800 hover:text-white",
                             "group flex gap-x-3 rounded-md p-3 text-sm font-semibold leading-6"
@@ -175,7 +188,7 @@ export default function MainLayout({
                             aria-hidden="true"
                           />
                           <span className="sr-only">{item.name}</span>
-                        </a>
+                        </Link>
                       </li>
                     </TooltipTrigger>
                     <TooltipContent>

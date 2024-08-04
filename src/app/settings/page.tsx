@@ -22,6 +22,7 @@ import UploadPhoto from "@/components/UploadPhoto";
 import { useForm } from "react-hook-form";
 import TextInput from "@/components/TextInput";
 import TextAreaDescription from "@/components/TextAreaDescription";
+import ButtonGeneral from "@/components/ButtonGeneral";
 
 const schema = yup
   .object({
@@ -90,7 +91,7 @@ export default function Settings() {
             subTitle="Manage your general settings"
           />
 
-          <form className="mt-8">
+          <form className="mt-8" onSubmit={handleSubmit(onSubmit)}>
             <div className="grid grid-cols-2 gap-4">
               <div className="col-span-full grid grid-cols-2">
                 <TextInput
@@ -139,6 +140,10 @@ export default function Settings() {
                   classDiv="col-span-full"
                 />
               </div>
+            </div>
+
+            <div className="flex justify-end mt-8">
+              <ButtonGeneral type="general" name="Save" />
             </div>
           </form>
         </div>
